@@ -38,6 +38,7 @@ export default function Navigation({
   prev2Label = '«',
   prevAriaLabel = '',
   prevLabel = '‹',
+  centerLabel = false,
   setActiveStartDate,
   showDoubleView,
   view,
@@ -168,6 +169,7 @@ export default function Navigation({
           {prev2Label}
         </button>
       )}
+      {!centerLabel && renderButton()}
       <button
         aria-label={prevAriaLabel}
         className={`${className}__arrow ${className}__prev-button`}
@@ -175,9 +177,9 @@ export default function Navigation({
         onClick={onClickPrevious}
         type="button"
       >
-        {prevLabel}
+        {prevLabel(prevButtonDisabled)}
       </button>
-      {renderButton()}
+      {centerLabel && renderButton()}
       <button
         aria-label={nextAriaLabel}
         className={`${className}__arrow ${className}__next-button`}
@@ -185,7 +187,7 @@ export default function Navigation({
         onClick={onClickNext}
         type="button"
       >
-        {nextLabel}
+        {nextLabel(nextButtonDisabled)}
       </button>
       {next2Label !== null && shouldShowPrevNext2Buttons && (
         <button
@@ -215,11 +217,11 @@ Navigation.propTypes = {
   next2AriaLabel: PropTypes.string,
   next2Label: PropTypes.node,
   nextAriaLabel: PropTypes.string,
-  nextLabel: PropTypes.node,
+  nextLabel: PropTypes.oneOfType([PropTypes.func, PropTypes.node]),
   prev2AriaLabel: PropTypes.string,
   prev2Label: PropTypes.node,
   prevAriaLabel: PropTypes.string,
-  prevLabel: PropTypes.node,
+  prevLabel: PropTypes.oneOfType([PropTypes.func, PropTypes.node]),
   setActiveStartDate: PropTypes.func.isRequired,
   showDoubleView: PropTypes.bool,
   view: isView.isRequired,

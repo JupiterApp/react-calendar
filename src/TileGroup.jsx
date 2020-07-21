@@ -22,6 +22,7 @@ export default function TileGroup({
   ...tileProps
 }) {
   const tiles = [];
+
   for (let point = start; point <= end; point += step) {
     const date = dateTransform(point);
 
@@ -33,6 +34,7 @@ export default function TileGroup({
         })}
         date={date}
         point={point}
+        value={value}
         {...tileProps}
       />,
     );

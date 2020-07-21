@@ -14,12 +14,20 @@ import { isCalendarType } from '../shared/propTypes';
 
 const className = 'react-calendar__month-view__weekdays';
 
+function sameDay(d1, d2) {
+  return (
+    d1.getFullYear() === d2.getFullYear()
+    && d1.getDay() === d2.getDay()
+  );
+}
+
 export default function Weekdays(props) {
   const {
     calendarType,
     formatShortWeekday = defaultFormatShortWeekday,
     locale,
     onMouseLeave,
+    value,
   } = props;
 
   const anyDate = new Date();
@@ -36,10 +44,12 @@ export default function Weekdays(props) {
 
     const abbr = formatWeekday(locale, weekdayDate);
 
+    const isSelected = sameDay(new Date(value), new Date(weekdayDate));
+
     weekdays.push(
       <div
         key={weekday}
-        className={`${className}__weekday`}
+        className={`${className}__weekday ${isSelected && `${className}__weekday--selected`}`}
       >
         <abbr aria-label={abbr} title={abbr}>
           {formatShortWeekday(locale, weekdayDate).replace('.', '')}
@@ -65,4 +75,8 @@ Weekdays.propTypes = {
   formatShortWeekday: PropTypes.func,
   locale: PropTypes.string,
   onMouseLeave: PropTypes.func,
+  value: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.any,
+  ]),
 };

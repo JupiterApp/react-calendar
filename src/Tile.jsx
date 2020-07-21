@@ -5,10 +5,14 @@ import mergeClassNames from 'merge-class-names';
 import { tileProps } from './shared/propTypes';
 
 function getValue(nextProps, prop) {
-  const { activeStartDate, date, view } = nextProps;
+  const {
+    activeStartDate, date, view, value,
+  } = nextProps;
 
   return typeof prop === 'function'
-    ? prop({ activeStartDate, date, view })
+    ? prop({
+      activeStartDate, date, view, value,
+    })
     : prop;
 }
 
@@ -67,6 +71,7 @@ export default class Tile extends Component {
         style={style}
         type="button"
       >
+        {tileContent}
         {formatAbbr
           ? (
             <abbr aria-label={formatAbbr(locale, date)}>
@@ -74,7 +79,6 @@ export default class Tile extends Component {
             </abbr>
           )
           : children}
-        {tileContent}
       </button>
     );
   }

@@ -20,6 +20,7 @@ export default function Days(props) {
   const {
     showFixedNumberOfWeeks,
     showNeighboringMonth,
+    value,
     ...otherProps
   } = props;
 
@@ -79,6 +80,7 @@ export default function Days(props) {
       offset={offset}
       start={start}
       tile={Day}
+      value={value}
     />
   );
 }

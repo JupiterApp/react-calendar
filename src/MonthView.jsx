@@ -28,6 +28,7 @@ export default function MonthView(props) {
     formatShortWeekday,
     onClickWeekNumber,
     showWeekNumbers,
+    value,
     ...childProps
   } = props;
 
@@ -38,6 +39,7 @@ export default function MonthView(props) {
         formatShortWeekday={formatShortWeekday}
         locale={locale}
         onMouseLeave={onMouseLeave}
+        value={value}
       />
     );
   }
@@ -62,6 +64,7 @@ export default function MonthView(props) {
     return (
       <Days
         calendarType={calendarType}
+        value={value}
         {...childProps}
       />
     );
@@ -106,4 +109,5 @@ MonthView.propTypes = {
   onMouseLeave: PropTypes.func,
   showFixedNumberOfWeeks: PropTypes.bool,
   showWeekNumbers: PropTypes.bool,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.any]),
 };
