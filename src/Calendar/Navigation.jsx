@@ -34,6 +34,8 @@ export default function Navigation({
   next2Label = '»',
   nextAriaLabel = '',
   nextLabel = '›',
+  onNextClick,
+  onPrevClick,
   prev2AriaLabel = '',
   prev2Label = '«',
   prevAriaLabel = '',
@@ -80,6 +82,7 @@ export default function Navigation({
   );
 
   function onClickPrevious() {
+    if (onPrevClick) onPrevClick(previousActiveStartDate);
     setActiveStartDate(previousActiveStartDate);
   }
 
@@ -88,6 +91,7 @@ export default function Navigation({
   }
 
   function onClickNext() {
+    if (onNextClick) onPrevClick(nextActiveStartDate);
     setActiveStartDate(nextActiveStartDate);
   }
 

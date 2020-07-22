@@ -30,7 +30,11 @@ export default function TileGroup({
       <Tile
         key={date.getTime()}
         classes={getTileClasses({
-          value, valueType, date, dateType, hover,
+          value,
+          valueType,
+          date,
+          dateType,
+          hover,
         })}
         date={date}
         point={point}

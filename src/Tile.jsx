@@ -16,6 +16,14 @@ function getValue(nextProps, prop) {
     : prop;
 }
 
+function sameDay(d1, d2) {
+  return (
+    d1.getFullYear() === d2.getFullYear()
+    && d1.getMonth() === d2.getMonth()
+    && d1.getDate() === d2.getDate()
+  );
+}
+
 export default class Tile extends Component {
   static getDerivedStateFromProps(nextProps, prevState) {
     const { tileClassName, tileContent } = nextProps;
@@ -43,6 +51,7 @@ export default class Tile extends Component {
       children,
       classes,
       date,
+      disabledDates,
       formatAbbr,
       locale,
       maxDate,
@@ -54,6 +63,7 @@ export default class Tile extends Component {
       style,
       tileDisabled,
       view,
+
     } = this.props;
     const { tileClassName, tileContent } = this.state;
 
@@ -64,6 +74,7 @@ export default class Tile extends Component {
           (minDate && minDateTransform(minDate) > date)
           || (maxDate && maxDateTransform(maxDate) < date)
           || (tileDisabled && tileDisabled({ activeStartDate, date, view }))
+          || (disabledDates && disabledDates.find(disabledDate => sameDay(disabledDate, date)))
         }
         onClick={onClick && (event => onClick(date, event))}
         onFocus={onMouseOver && (() => onMouseOver(date))}
@@ -71,14 +82,16 @@ export default class Tile extends Component {
         style={style}
         type="button"
       >
-        {tileContent}
         {formatAbbr
           ? (
-            <abbr aria-label={formatAbbr(locale, date)}>
-              {children}
-            </abbr>
+            <div>
+              <abbr aria-label={formatAbbr(locale, date)} className={sameDay(new Date(), date) && 'react-calendar__tile--today-indicator--now'}>
+                {children}
+              </abbr>
+            </div>
           )
           : children}
+        {tileContent}
       </button>
     );
   }
