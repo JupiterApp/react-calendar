@@ -1,5 +1,5 @@
 {
-  "name": "react-calendar",
+  "name": "@jupiterdev/react-calendar",
   "version": "3.1.0",
   "description": "Ultimate calendar for your React app.",
   "main": "dist/umd/index.js",
@@ -36,40 +36,17 @@
     "month-picker",
     "react"
   ],
-  "author": {
-    "name": "Wojciech Maj",
-    "email": "kontakt@wojtekmaj.pl"
-  },
+  "author": "Wojciech Maj <kontakt@wojtekmaj.pl>",
   "contributors": [
-    {
-      "name": "Alberto Carreras"
-    },
-    {
-      "name": "Andriy Kuzyk"
-    },
-    {
-      "name": "Baldur Árnason"
-    },
-    {
-      "name": "Jack Willis-Craig"
-    },
-    {
-      "name": "JamieEgeberg"
-    },
-    {
-      "name": "Justin Davis"
-    },
-    {
-      "name": "Kevin Kipp",
-      "email": "kevin.kipp@gmail.com"
-    },
-    {
-      "name": "Ritesh Kumar",
-      "email": "rkritesh078@gmail.com"
-    },
-    {
-      "name": "Sergi Meseguer"
-    }
+    "Alberto Carreras",
+    "Andriy Kuzyk",
+    "Baldur Árnason",
+    "Jack Willis-Craig",
+    "JamieEgeberg",
+    "Justin Davis",
+    "Kevin Kipp <kevin.kipp@gmail.com>",
+    "Ritesh Kumar <rkritesh078@gmail.com>",
+    "Sergi Meseguer"
   ],
   "license": "MIT",
   "dependencies": {
@@ -113,6 +90,13 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/wojtekmaj/react-calendar.git"
+    "url": "git+https://github.com/wojtekmaj/react-calendar.git"
+  },
+  "bugs": {
+    "url": "https://github.com/wojtekmaj/react-calendar/issues"
+  },
+  "homepage": "https://github.com/wojtekmaj/react-calendar#readme",
+  "directories": {
+    "test": "test"
   }
 }
