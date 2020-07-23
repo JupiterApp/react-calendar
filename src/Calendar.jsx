@@ -517,14 +517,14 @@ export default class Calendar extends Component {
           showFixedNumberOfWeeks,
           showNeighboringMonth,
           showWeekNumbers,
-          disabledDates,
+          enabledDates,
         } = this.props;
         const { onMouseLeave } = this;
 
         return (
           <MonthView
             calendarType={calendarType}
-            disabledDates={disabledDates}
+            enabledDates={enabledDates}
             formatLongDate={formatLongDate}
             formatShortWeekday={formatShortWeekday}
             onClickWeekNumber={onClickWeekNumber}
@@ -649,7 +649,7 @@ Calendar.propTypes = {
   defaultActiveStartDate: isActiveStartDate,
   defaultValue: isLooseValue,
   defaultView: isView,
-  disabledDates: PropTypes.arrayOf(PropTypes.instanceOf(Date)),
+  enabledDates: PropTypes.arrayOf(PropTypes.instanceOf(Date)),
   formatLongDate: PropTypes.func,
   formatMonth: PropTypes.func,
   formatMonthYear: PropTypes.func,

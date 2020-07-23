@@ -65,8 +65,16 @@ function getRangeClassNames(valueRange, dateRange, baseClassName) {
   return classes;
 }
 
+function sameDay(d1, d2) {
+  return (
+    d1.getFullYear() === d2.getFullYear()
+    && d1.getMonth() === d2.getMonth()
+    && d1.getDate() === d2.getDate()
+  );
+}
+
 export function getTileClasses({
-  value, valueType, date, dateType, hover,
+  value, valueType, date, dateType, hover, enabledDates,
 } = {}) {
   const className = 'react-calendar__tile';
   const classes = [className];
@@ -96,7 +104,16 @@ export function getTileClasses({
 
   const valueRange = value instanceof Array ? value : getRange(valueType, value);
 
-  if (isRangeWithinRange(valueRange, dateRange)) {
+  if (enabledDates && enabledDates.length) {
+    if (enabledDates.find(enabledDate => sameDay(enabledDate, date))) {
+      classes.push(`${className}--enabled`);
+      if (isRangeWithinRange(valueRange, dateRange)) {
+        classes.push(`${className}--active`);
+      } else if (doRangesOverlap(valueRange, dateRange)) {
+        classes.push(`${className}--hasActive`);
+      }
+    }
+  } else if (isRangeWithinRange(valueRange, dateRange)) {
     classes.push(`${className}--active`);
   } else if (doRangesOverlap(valueRange, dateRange)) {
     classes.push(`${className}--hasActive`);

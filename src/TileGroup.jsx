@@ -19,6 +19,7 @@ export default function TileGroup({
   tile: Tile,
   value,
   valueType,
+  enabledDates,
   ...tileProps
 }) {
   const tiles = [];
@@ -35,6 +36,7 @@ export default function TileGroup({
           date,
           dateType,
           hover,
+          enabledDates,
         })}
         date={date}
         point={point}
