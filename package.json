@@ -90,12 +90,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wojtekmaj/react-calendar.git"
+    "url": "git+https://github.com/JupiterApp/react-calendar"
   },
   "bugs": {
     "url": "https://github.com/wojtekmaj/react-calendar/issues"
   },
-  "homepage": "https://github.com/wojtekmaj/react-calendar#readme",
+  "homepage": "https://github.com/JupiterApp/react-calendar#readme",
   "directories": {
     "test": "test"
   }

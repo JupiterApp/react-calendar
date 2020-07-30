@@ -6,6 +6,11 @@
   <img width="436" heigth="398" src="https://projects.wojtekmaj.pl/react-calendar/react-calendar.jpg">
 </div>
 
+This is fork of the original library `react-calendar`. It contains organization specific props that are needed to add custom UI controls.
+- New props: `enabledDates`, `centerLabel`
+- New handling of how dates are clickable or not
+- Expose on month change handlers
+
 Ultimate calendar for your React app.
 
 * Pick days, months, years, or even decades
@@ -14,7 +19,7 @@ Ultimate calendar for your React app.
 * No moment.js needed
 
 ## tl;dr
-* Install by executing `npm install react-calendar` or `yarn add react-calendar`.
+* Install by executing `npm install @jupiterdev/react-calendar` or `yarn add @jupiterdev/react-calendar`.
 * Import by adding `import Calendar from 'react-calendar'`.
 * Use by adding `<Calendar />`. Use `onChange` prop for getting new values.
 
